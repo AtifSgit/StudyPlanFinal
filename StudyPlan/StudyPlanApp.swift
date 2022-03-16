@@ -6,12 +6,25 @@
 //
 
 import SwiftUI
+import Firebase
 
 @main
 struct StudyPlanApp: App {
+    
+    
+    @StateObject var viewModel = AuthenViewMod()
+    
+    init(){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+        ContentView()
+            }
+                .environmentObject(viewModel)
+            
         }
     }
 }

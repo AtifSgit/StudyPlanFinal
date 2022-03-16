@@ -8,9 +8,20 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var showMenu = false
+    @EnvironmentObject var viewModel: AuthenViewMod
+    
+    
+    // body
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        if viewModel.userSession == nil{
+            SignInView()
+        }
+        else {
+            MTabView()
+        }
+          
     }
 }
 
@@ -19,3 +30,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+ 
